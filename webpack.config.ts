@@ -5,7 +5,7 @@ import path from "path";
 
 export default (env: BuildEnv): webpack.Configuration => {
     const paths: BuildPaths = {
-        entry: path.resolve(__dirname, 'src', 'index.ts'),
+        entry: path.resolve(__dirname, 'src', 'index.tsx'),
         build: path.resolve(__dirname, 'build'),
         html: path.resolve(__dirname, 'public', 'index.html'),
     }
@@ -16,7 +16,7 @@ export default (env: BuildEnv): webpack.Configuration => {
     const isDev = mode === 'development'
 
     return buildWebpackConfig({
-        mode: env.mode,
+        mode,
         paths,
         isDev,
         port: PORT
